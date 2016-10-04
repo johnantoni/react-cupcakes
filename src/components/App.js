@@ -10,24 +10,24 @@ class App extends React.Component {
       cupcakes: {},
       order: {},
     };
+    this.addCupcake = this.addCupcake.bind(this);
   }
 
-  // addCupcake(cupcake) {
-  //   // update our state
-  //   const cupcakes = {...this.state.cupcakes};
-  //   console.log(cupcakes);
-  //   // add in our new cupcake
-  //   const timestamp = Date.now();
-  //   cupcakes[`cupcake-${timestamp}`] = cupcake;
-  //   // set state
-  //   this.setState({ cupcakes });
-  // }
-
+  addCupcake(cupcake) {
+    // update our state
+    const cupcakes = {...this.state.cupcakes};
+    console.log(cupcakes);
+    // add in our new cupcake
+    const timestamp = Date.now();
+    cupcakes[`cupcake-${timestamp}`] = cupcake;
+    // set state
+    this.setState({ cupcakes });
+  }
 
   render() {
     return (
       <div><h1>here are my cupcakes</h1>
-      <CreateCupcake />
+      <CreateCupcake addCupcake={this.addCupcake} />
       </div>
 
     )

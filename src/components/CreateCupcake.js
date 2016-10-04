@@ -29,6 +29,8 @@ class CreateCupcake extends React.Component {
     }
 
     console.log(cupcake);
+
+    this.props.addCupcake(cupcake);
   }
 
   render() {
