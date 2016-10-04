@@ -1,6 +1,7 @@
 import React from 'react'
-
+import '../css/style.css';
 import CreateCupcake from './CreateCupcake';
+import CupcakeImage from './CupcakeImage';
 
 class App extends React.Component {
   constructor() {
@@ -28,8 +29,8 @@ class App extends React.Component {
     return (
       <div><h1>here are my cupcakes</h1>
       <CreateCupcake addCupcake={this.addCupcake} />
+      <CupcakeImage />
       </div>
-
     )
   }
 }
