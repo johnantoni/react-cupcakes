@@ -5,13 +5,13 @@ class CreateCupcake extends React.Component {
   constructor() {
     super();
     this.state = {
-      selectedOptionCake: 'vanilla',
-      selectedOptionIcing: 'vanilla',
+      cake: 'vanilla',
+      icing: 'vanilla',
       toppings: []
     }
-    this.handleOptionChangeCake = this.handleOptionChangeCake.bind(this);
-    this.handleOptionChangeIcing = this.handleOptionChangeIcing.bind(this);
-    this.toppingsChanged = this.toppingsChanged.bind(this)
+    this.changeCake = this.changeCake.bind(this);
+    this.changeIcing = this.changeIcing.bind(this);
+    this.changeToppings = this.changeToppings.bind(this)
   }
 
   componentDidMount() {
@@ -23,15 +23,15 @@ class CreateCupcake extends React.Component {
     }.bind(this), 5000);
   }
 
-  handleOptionChangeCake(changeEvent) {
-    this.setState({selectedOptionCake: changeEvent.target.value});
+  changeCake(item) {
+    this.setState({cake: item.target.value});
   }
 
-  handleOptionChangeIcing(changeEvent) {
-    this.setState({selectedOptionIcing: changeEvent.target.value});
+  changeIcing(item) {
+    this.setState({icing: item.target.value});
   }
 
-  toppingsChanged(newToppings) {
+  changeToppings(newToppings) {
     this.setState({
       toppings: newToppings
     });
@@ -42,8 +42,8 @@ class CreateCupcake extends React.Component {
     console.log("gonna start baking");
 
     const cupcake = {
-      cakeType: this.state.selectedOptionCake,
-      cakeIcing: this.state.selectedOptionIcing,
+      cake: this.state.cake,
+      icing: this.state.icing,
       toppings: this.state.toppings
     }
 
@@ -59,74 +59,74 @@ class CreateCupcake extends React.Component {
           <h3>Choose a Cake Type</h3>
           <div className="radio">
             <label>
-              <input type="radio" value="vanilla"
-                            checked={this.state.selectedOptionCake === 'vanilla'}
-                            onChange={this.handleOptionChangeCake} />
+              <input type="radio" value="vanilla-cake"
+                            checked={this.state.cake === 'vanilla-cake'}
+                            onChange={this.changeCake} />
                           Vanilla Bean
             </label>
           </div>
           <div className="radio">
             <label>
-              <input type="radio" value="red-velvet"
-                            checked={this.state.selectedOptionCake === 'red-velvet'}
-                            onChange={this.handleOptionChangeCake} />
+              <input type="radio" value="red-velvet-cake"
+                            checked={this.state.cake === 'red-velvet-cake'}
+                            onChange={this.changeCake} />
                           Red Velvet
             </label>
           </div>
           <div className="radio">
             <label>
-              <input type="radio" value="chocolate"
-                            checked={this.state.selectedOptionCake === 'chocolate'}
-                            onChange={this.handleOptionChangeCake} />
+              <input type="radio" value="chocolate-cake"
+                            checked={this.state.cake === 'chocolate-cake'}
+                            onChange={this.changeCake} />
                           Chocolate Truffle
             </label>
           </div>
           <h3>Choose a Icing Type</h3>
             <div className="radio">
               <label>
-                <input type="radio" value="vanilla"
-                              checked={this.state.selectedOptionIcing === 'vanilla'}
-                              onChange={this.handleOptionChangeIcing} />
+                <input type="radio" value="vanilla-icing"
+                              checked={this.state.icing === 'vanilla-icing'}
+                              onChange={this.changeIcing} />
                             Vanilla Buttercream
               </label>
             </div>
             <div className="radio">
               <label>
-                <input type="radio" value="cream-cheese"
-                              checked={this.state.selectedOptionIcing === 'cream-cheese'}
-                              onChange={this.handleOptionChangeIcing} />
+                <input type="radio" value="cream-cheese-icing"
+                              checked={this.state.icing === 'cream-cheese-icing'}
+                              onChange={this.changeIcing} />
                             Cream Cheese
               </label>
             </div>
             <div className="radio">
               <label>
-                <input type="radio" value="chocolate"
-                              checked={this.state.selectedOptionIcing === 'chocolate'}
-                              onChange={this.handleOptionChangeIcing} />
+                <input type="radio" value="chocolate-icing"
+                              checked={this.state.icing === 'chocolate-icing'}
+                              onChange={this.changeIcing} />
                             Chocolate Buttercream
               </label>
             </div>
             <div className="radio">
               <label>
-                <input type="radio" value="pink"
-                              checked={this.state.selectedOptionIcing === 'pink'}
-                              onChange={this.handleOptionChangeIcing} />
+                <input type="radio" value="pink-buttercream-icing"
+                              checked={this.state.icing === 'pink-buttercream-icing'}
+                              onChange={this.changeIcing} />
                             Pink Buttercream
               </label>
             </div>
             <div className="radio">
               <label>
-                <input type="radio" value="peanut-butter"
-                              checked={this.state.selectedOptionIcing === 'peanut-butter'}
-                              onChange={this.handleOptionChangeIcing} />
+                <input type="radio" value="peanut-butter-cream"
+                              checked={this.state.icing === 'peanut-butter-cream'}
+                              onChange={this.changeIcing} />
                             Peanut Butter Buttercream
               </label>
             </div>
             <div className="radio">
               <label>
-                <input type="radio" value="mint"
-                              checked={this.state.selectedOptionIcing === 'mint'}
-                              onChange={this.handleOptionChangeIcing} />
+                <input type="radio" value="mint-cream-icing"
+                              checked={this.state.icing === 'mint-cream-icing'}
+                              onChange={this.changeIcing} />
                             Mint Cream
               </label>
             </div>
@@ -134,7 +134,7 @@ class CreateCupcake extends React.Component {
             <CheckboxGroup
               name="toppings"
               value={this.state.toppings}
-              onChange={this.toppingsChanged}>
+              onChange={this.changeToppings}>
 
               <label><Checkbox value="blackberry"/> Blackberry</label>
               <label><Checkbox value="blueberry"/> Blueberry</label>

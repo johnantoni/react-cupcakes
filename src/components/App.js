@@ -10,8 +10,10 @@ class App extends React.Component {
     this.state = {
       cupcakes: {},
       order: {},
+      urlType: "",
     };
     this.addCupcake = this.addCupcake.bind(this);
+    // this.createURL = this.createURL.bind(this);
   }
 
   addCupcake(cupcake) {
@@ -25,10 +27,15 @@ class App extends React.Component {
     this.setState({ cupcakes });
   }
 
+  // createURL(type, selectedOptionCake) {
+  //   const src=`${selectedOptionCake}-cake.png`
+  //   console.log(src);
+  // }
+
   render() {
     return (
       <div><h1>here are my cupcakes</h1>
-      <CreateCupcake addCupcake={this.addCupcake} />
+      <CreateCupcake addCupcake={this.addCupcake} createURL={this.createURL} />
       <CupcakeImage />
       </div>
     )
