@@ -50,7 +50,10 @@ class CreateCupcake extends React.Component {
     console.log(cupcake);
 
     this.props.addCupcake(cupcake);
-  }
+
+      this.setState({ cake: 'vanilla', icing: 'vanilla', toppings: [] });
+    }
+
 
   render() {
     return (
