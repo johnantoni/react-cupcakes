@@ -21,15 +21,15 @@ class App extends React.Component {
     // update our state
     const cupcakes = {...this.state.cupcakes};
     // add in our new cupcake
-    const timestamp = Date.now();
-    cupcakes[`cupcake-${timestamp}`] = cupcake;
-    console.log(cupcakes);
+    // const timestamp = Date.now();
+    cupcakes.cake = cupcake;
     $.ajax({
       url: "https://cupcakes-16999.firebaseio.com/.json",
       method: "POST",
-      data: JSON.stringify(cupcakes),
+      data: JSON.stringify(cupcake),
       success: (data) => {
         this.setState({cupcakes});
+
       }
     })
   }
