@@ -1,5 +1,7 @@
 import React from 'react'
+import {Layer, Rect, Stage, Group} from 'react-konva';
 import $ from 'jquery';
+
 import '../css/style.css';
 import CreateCupcake from './CreateCupcake';
 import CupcakeImage from './CupcakeImage';
@@ -20,9 +22,11 @@ class App extends React.Component {
   addCupcake(cupcake) {
     // update our state
     const cupcakes = {...this.state.cupcakes};
+    console.log(Object.keys(cupcakes).length);
     // add in our new cupcake
     // const timestamp = Date.now();
     cupcakes.cake = cupcake;
+
     $.ajax({
       url: "https://cupcakes-16999.firebaseio.com/.json",
       method: "POST",
@@ -43,7 +47,11 @@ class App extends React.Component {
     return (
       <div><h1>here are my cupcakes</h1>
       <CreateCupcake addCupcake={this.addCupcake} createURL={this.createURL} />
-      <CupcakeImage />
+      <Stage width={700} height={700}>
+       <Layer>
+           <MyRect/>
+       </Layer>
+     </Stage>
       </div>
     )
   }
