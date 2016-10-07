@@ -8,7 +8,7 @@ import App from './components/App';
 const config = {
   apiKey: " AIzaSyA2hb3GHXnIseQEhg04Ja-h_qpqO_IJJeU",
   authDomain: "cupcakes-16999.firebaseapp.com",
-  databaseURL: "https://cupcakes-16999.firebaseio.com/.json",
+  databaseURL: "https://cupcakes-16999.firebaseio.com",
   storageBucket: "cupcakes-16999.appspot.com",
 };
 

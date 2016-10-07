@@ -20,19 +20,18 @@ class App extends React.Component {
   addCupcake(cupcake) {
     // update our state
     const cupcakes = {...this.state.cupcakes};
-    console.log(cupcakes);
     // add in our new cupcake
     const timestamp = Date.now();
     cupcakes[`cupcake-${timestamp}`] = cupcake;
-    // set state
-    // $.ajax({
-    //   url: "https://cupcakes-16999.firebaseio.com/json",
-    //   method: "POST",
-    //   data: JSON.stringify(cupcakes),
-    //   success: (data) => {
-    //     this.setState({cupcakes});
-    //   }
-    // })
+    console.log(cupcakes);
+    $.ajax({
+      url: "https://cupcakes-16999.firebaseio.com/.json",
+      method: "POST",
+      data: JSON.stringify(cupcakes),
+      success: (data) => {
+        this.setState({cupcakes});
+      }
+    })
   }
 
   createURL(type, selectedOptionCake) {
