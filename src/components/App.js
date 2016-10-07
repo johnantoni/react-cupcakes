@@ -1,4 +1,5 @@
 import React from 'react'
+import $ from 'jquery';
 import '../css/style.css';
 import CreateCupcake from './CreateCupcake';
 import CupcakeImage from './CupcakeImage';
@@ -24,13 +25,20 @@ class App extends React.Component {
     const timestamp = Date.now();
     cupcakes[`cupcake-${timestamp}`] = cupcake;
     // set state
-    this.setState({ cupcakes });
+    // $.ajax({
+    //   url: "https://cupcakes-16999.firebaseio.com/json",
+    //   method: "POST",
+    //   data: JSON.stringify(cupcakes),
+    //   success: (data) => {
+    //     this.setState({cupcakes});
+    //   }
+    // })
   }
 
-  // createURL(type, selectedOptionCake) {
-  //   const src=`${selectedOptionCake}-cake.png`
-  //   console.log(src);
-  // }
+  createURL(type, selectedOptionCake) {
+    const src=`${selectedOptionCake}-cake.png`
+    console.log(src);
+  }
 
   render() {
     return (
@@ -39,6 +47,17 @@ class App extends React.Component {
       <CupcakeImage />
       </div>
     )
+  }
+
+  componentDidMount() {
+    $.ajax({
+      url: "https://cupcakes-16999.firebaseio.com/.json",
+      method: "GET",
+      success: (data) => {
+        this.setState({ cupcakes: data });
+        console.log(data);
+      }
+    })
   }
 }
 
