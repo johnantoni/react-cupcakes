@@ -11,17 +11,15 @@ class App extends React.Component {
     this.state = {
       cupcakes: {},
       order: {},
-      urlType: "",
     };
     this.addCupcake = this.addCupcake.bind(this);
-    // this.createURL = this.createURL.bind(this);
+    this.updateSrc = this.updateSrc.bind(this);
   }
 
   addCupcake(cupcake) {
     // update our state
     const cupcakes = {...this.state.cupcakes};
     // add in our new cupcake
-    // const timestamp = Date.now();
     cupcakes.cake = cupcake;
     $.ajax({
       url: "https://cupcakes-16999.firebaseio.com/.json",
@@ -34,16 +32,16 @@ class App extends React.Component {
     })
   }
 
-  createURL(type, selectedOptionCake) {
-    const src=`${selectedOptionCake}-cake.png`
-    console.log(src);
+  updateSrc(imgSrc) {
+    console.log(imgSrc);
+    this.propos.updateCanvas(imgSrc);
   }
 
   render() {
     return (
       <div><h1>here are my cupcakes</h1>
-      <CreateCupcake addCupcake={this.addCupcake} createURL={this.createURL} />
-      <CupcakeImage />
+      <CreateCupcake addCupcake={this.addCupcake} updateSrc={this.updateSrc}/>
+      <CupcakeImage updateCanvas={this.updateCanvas}/>
       </div>
     )
   }
