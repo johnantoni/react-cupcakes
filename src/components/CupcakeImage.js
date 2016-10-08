@@ -33,10 +33,10 @@ class CupcakeImage extends React.Component {
   render() {
    return (
       <div>
-        <img id="source" src="https://mdn.mozillademos.org/files/5397/rhino.jpg"
+        <img id="source" src="assets/background.png"
        width="" height=""/>
-        <canvas ref="canvas" width={300} height={300}/>
-        
+     <canvas ref="canvas" width={360} height={480}/>
+
         </div>
 
    );
