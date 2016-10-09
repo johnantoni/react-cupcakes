@@ -1,11 +1,5 @@
 import React from 'react';
 
-// const imageURL = [
-//   {name: '', src: 2},
-//   {name: 'bananas', quantity: 0},
-//   {name: 'cherries', quantity: 5}
-// ];
-
 class CupcakeImage extends React.Component {
   componentDidMount() {
     this.updateCanvas();
@@ -21,24 +15,32 @@ class CupcakeImage extends React.Component {
     ctx.drawImage(background, 0, 0);
   }
 
-  addImages(ctx, imgSrc) {
+  addCake(ctx, imgSrc)  {
+    this.addImage(ctx, imgSrc);
+  }
+
+  addIcing(ctx, imgSrc)  {
+    this.addImage(ctx, imgSrc);
+  }
+
+  addImage(ctx, imgSrc) {
     var image = new Image();
     image.src = `assets/${imgSrc}`
-
-    console.log(image.src )
-    // var image = new Image();
-
     image.onload = function()  {
-        ctx.drawImage(image, 0, 0);
-        // ctx.drawImage(image2, 0, 0);
+      ctx.drawImage(image, 0, 0);
     }
   }
 
-  updateCanvas(imgSrc) {
-    console.log(imgSrc);
+  updateCanvas(cakeImgSrc, icingImgSrc) {
+    let cakeSrc = this.props.cakeImgSrc;
+    let icingSrc = this.props.icingImgSrc;
+
     const ctx = this.refs.canvas.getContext('2d');
     this.loadBackground(ctx);
-    this.addImages(ctx, imgSrc);
+
+    // console.log(cakeImgSrc);
+    this.addCake(ctx, cakeSrc);
+    this.addIcing(ctx, icingSrc);
   }
 
   render() {

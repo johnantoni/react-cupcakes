@@ -11,9 +11,12 @@ class App extends React.Component {
     this.state = {
       cupcakes: {},
       order: {},
+      cakeImgSrc: '',
+      icingImgSrc: '',
     };
     this.addCupcake = this.addCupcake.bind(this);
-    this.updateSrc = this.updateSrc.bind(this);
+    this.updateCakeSrc = this.updateCakeSrc.bind(this);
+    this.updateIcingSrc = this.updateIcingSrc.bind(this);
   }
 
   addCupcake(cupcake) {
@@ -32,16 +35,22 @@ class App extends React.Component {
     })
   }
 
-  updateSrc(imgSrc) {
-    console.log(imgSrc);
-    this.propos.updateCanvas(imgSrc);
+  updateCakeSrc(cakeImgSrc) {
+    this.setState({cakeImgSrc});
+    // console.log(cakeImgSrc);
   }
+
+  updateIcingSrc(icingImgSrc) {
+    this.setState({icingImgSrc});
+    // console.log(icingImgSrc);
+  }
+
 
   render() {
     return (
       <div><h1>here are my cupcakes</h1>
-      <CreateCupcake addCupcake={this.addCupcake} updateSrc={this.updateSrc}/>
-      <CupcakeImage updateCanvas={this.updateCanvas}/>
+      <CreateCupcake addCupcake={this.addCupcake} updateCakeSrc={this.updateCakeSrc} updateIcingSrc={this.updateIcingSrc}/>
+      <CupcakeImage cakeImgSrc={this.state.cakeImgSrc} icingImgSrc={this.state.icingImgSrc}/>
       </div>
     )
   }

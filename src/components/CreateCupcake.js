@@ -26,13 +26,13 @@ class CreateCupcake extends React.Component {
   changeCake(item) {
     let src = {cake: item.target.value};
     this.setState(src);
-    this.createSRC(src);
+    this.createCakeSrc(src);
   }
 
   changeIcing(item) {
     let src = {icing: item.target.value}
     this.setState(src);
-    this.createSRC(src);
+    this.createIcingSrc(src);
   }
 
   changeToppings(newToppings) {
@@ -41,10 +41,17 @@ class CreateCupcake extends React.Component {
     });
   }
 
-  createSRC(src) {
+  createCakeSrc(src) {
     for(var i in src){
       const imgSrc=`${src[i]}.png`
-      this.props.updateSrc(imgSrc);
+      this.props.updateCakeSrc(imgSrc);
+    }
+  }
+
+  createIcingSrc(src) {
+    for(var i in src){
+      const imgSrc=`${src[i]}.png`
+      this.props.updateIcingSrc(imgSrc);
     }
   }
 
@@ -59,10 +66,9 @@ class CreateCupcake extends React.Component {
       toppings: this.state.toppings
     }
 
-    console.log(cupcake);
+    // console.log(cupcake);
 
     this.props.addCupcake(cupcake);
-
       this.setState({ cake: 'vanilla', icing: 'vanilla', toppings: [] });
     }
 
