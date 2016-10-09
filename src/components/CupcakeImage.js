@@ -5,7 +5,7 @@ class CupcakeImage extends React.Component {
     super();
     {/*getInitialState if using ES6*/}
     this.state = {
-      images: ["blackberry.png", "blueberry.png", "cherry.png",
+      images: ["background.png", "blackberry.png", "blueberry.png", "cherry.png",
             "chocolate-baubles.png", "chocolate-cake.png", "chocolate-icing.png", "cream-cheese-icing.png",
             "kiwi.png", "mint-cream-icing.png", "peanut-butter-icing.png", "pink-buttercream-icing.png",
             "rainbow-sprinkles.png", "raspberry.png", "red-and-white-stars.png", "red-baubles.png",
@@ -43,6 +43,14 @@ class CupcakeImage extends React.Component {
     this.addImage(ctx, imgSrc);
   }
 
+  toppingsSrc(ctx, arr) {
+    console.log(arr);
+
+    arr.forEach((item) => {
+      this.addImage(ctx, item)
+    })
+  }
+
   addImage(ctx, imgSrc) {
     var image = new Image();
     image.src = `${imgSrc}`
@@ -56,18 +64,17 @@ class CupcakeImage extends React.Component {
     }
   }
 
-  updateCanvas(cakeImgSrc, icingImgSrc, loadedimages) {
+  updateCanvas(cakeImgSrc, icingImgSrc, chosenToppings) {
     let cakeSrc = this.props.cakeImgSrc;
     let icingSrc = this.props.icingImgSrc;
-
-    console.log(loadedimages);
+    let toppingsSrc = this.props.chosenToppings;
 
     const ctx = this.refs.canvas.getContext('2d');
     this.loadBackground(ctx);
 
-    // console.log(cakeImgSrc);
     this.addCake(ctx, cakeSrc);
     this.addIcing(ctx, icingSrc);
+    this.toppingsSrc(ctx, toppingsSrc);
   }
 
   render() {

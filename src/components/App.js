@@ -13,10 +13,13 @@ class App extends React.Component {
       order: {},
       cakeImgSrc: '',
       icingImgSrc: '',
+      chosenToppings: []
     };
     this.addCupcake = this.addCupcake.bind(this);
     this.updateCakeSrc = this.updateCakeSrc.bind(this);
     this.updateIcingSrc = this.updateIcingSrc.bind(this);
+    this.updateToppingsSrc = this.updateToppingsSrc.bind(this);
+
   }
 
   addCupcake(cupcake) {
@@ -45,12 +48,19 @@ class App extends React.Component {
     // console.log(icingImgSrc);
   }
 
+  updateToppingsSrc(chosenToppings) {
+    this.setState({chosenToppings});
+      console.log(chosenToppings);
+  }
+
+
+
 
   render() {
     return (
       <div><h1>here are my cupcakes</h1>
-      <CreateCupcake addCupcake={this.addCupcake} updateCakeSrc={this.updateCakeSrc} updateIcingSrc={this.updateIcingSrc}/>
-      <CupcakeImage cakeImgSrc={this.state.cakeImgSrc} icingImgSrc={this.state.icingImgSrc}/>
+      <CreateCupcake addCupcake={this.addCupcake} updateCakeSrc={this.updateCakeSrc} updateIcingSrc={this.updateIcingSrc} updateToppingsSrc={this.updateToppingsSrc}/>
+      <CupcakeImage cakeImgSrc={this.state.cakeImgSrc} icingImgSrc={this.state.icingImgSrc} chosenToppings={this.state.chosenToppings}/>
       </div>
     )
   }
@@ -61,7 +71,7 @@ class App extends React.Component {
       method: "GET",
       success: (data) => {
         this.setState({ cupcakes: data });
-        console.log(data);
+        // console.log(data);
       }
     })
   }

@@ -18,7 +18,7 @@ class CreateCupcake extends React.Component {
     // Add orange and remove watermelon after 5 seconds
     setTimeout(function() {
       this.setState({
-        value: ['apple','orange']
+        value: ['reeses','smarties']
       });
     }.bind(this), 5000);
   }
@@ -36,9 +36,9 @@ class CreateCupcake extends React.Component {
   }
 
   changeToppings(newToppings) {
-    this.setState({
-      toppings: newToppings
-    });
+    let src = {toppings: newToppings}
+    this.setState(src);
+    this.prepareToppingsSrc(src);
   }
 
   createCakeSrc(src) {
@@ -55,18 +55,24 @@ class CreateCupcake extends React.Component {
     }
   }
 
+  prepareToppingsSrc(src) {
+    const srcToppings =  src.toppings;
+    // console.log(srcToppings);
+    let addToppings = srcToppings.map((item) => {
+      // console.log(item);
+      return `${item}.png`;
+    });
+    this.props.updateToppingsSrc(addToppings);
+  }
+
 
   createCupcake(event) {
     event.preventDefault();
-    console.log("gonna start baking");
-
     const cupcake = {
       cake: this.state.cake,
       icing: this.state.icing,
       toppings: this.state.toppings
     }
-
-    // console.log(cupcake);
 
     this.props.addCupcake(cupcake);
       this.setState({ cake: 'vanilla', icing: 'vanilla', toppings: [] });
