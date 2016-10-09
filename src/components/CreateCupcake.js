@@ -105,8 +105,8 @@ class CreateCupcake extends React.Component {
           <h3>Choose a Icing Type</h3>
             <div className="radio">
               <label>
-                <input type="radio" value="vanilla-icing"
-                              checked={this.state.icing === 'vanilla-icing'}
+                <input type="radio" value="vanilla-cream-icing"
+                              checked={this.state.icing === 'vanilla-cream-icing'}
                               onChange={this.changeIcing} />
                             Vanilla Buttercream
               </label>
@@ -137,8 +137,8 @@ class CreateCupcake extends React.Component {
             </div>
             <div className="radio">
               <label>
-                <input type="radio" value="peanut-butter-cream"
-                              checked={this.state.icing === 'peanut-butter-cream'}
+                <input type="radio" value="peanut-butter-icing"
+                              checked={this.state.icing === 'peanut-butter-icing'}
                               onChange={this.changeIcing} />
                             Peanut Butter Buttercream
               </label>
