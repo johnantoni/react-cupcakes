@@ -4,7 +4,7 @@
   display: inline-block;
   background-color: #f9f4c5;
   overflow: scroll;
-height: 100vh;
+  height: 100vh;
   padding: 1%;
 }
 
@@ -45,6 +45,12 @@ canvas {
             filter: brightness(1) grayscale(.0) opacity(1);
 }
 
+.inputcheck:hover, .inputcheck[type="checkbox"]:checked {
+    -webkit-filter: brightness(1) grayscale(.4) opacity(.8);
+       -moz-filter: brightness(1) grayscale(.4) opacity(.8);
+            filter: brightness(1) grayscale(.4) opacity(.8);
+}
+
 .inputcard img{
     width: 100%;
 }
@@ -54,7 +60,7 @@ canvas {
   margin: 0 1% 1%;
 }
 
-.inputcard:hover{
+.inputcard:hover, input[type=checkbox]:checked ~ div {
     -webkit-filter: brightness(1) grayscale(.4) opacity(.8);
        -moz-filter: brightness(1) grayscale(.4) opacity(.8);
             filter: brightness(1) grayscale(.4) opacity(.8);
@@ -64,3 +70,5 @@ canvas {
 a:visited{color:#888}
 a{color:#444;text-decoration:none;}
 p{margin-bottom:.3em;}
+
+.inputcheck img { cursor: pointer; }
