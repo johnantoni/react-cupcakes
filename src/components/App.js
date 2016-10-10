@@ -58,7 +58,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div><h1>here are my cupcakes</h1>
+      <div>
       <CreateCupcake addCupcake={this.addCupcake} updateCakeSrc={this.updateCakeSrc} updateIcingSrc={this.updateIcingSrc} updateToppingsSrc={this.updateToppingsSrc}/>
       <CupcakeImage cakeImgSrc={this.state.cakeImgSrc} icingImgSrc={this.state.icingImgSrc} chosenToppings={this.state.chosenToppings}/>
       </div>

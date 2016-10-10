@@ -1,3 +1,66 @@
+.form {
+  width: 60%;
+  max-width: 400px;
+  display: inline-block;
+  background-color: #f9f4c5;
+  overflow: scroll;
+height: 100vh;
+  padding: 1%;
+}
+
+canvas {
+  width: 40%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+
 .cupcakeImg img{
   position: absolute;
 }
+
+.cupcakes .radio {
+  display: inline;
+}
+
+.cupcakes input{
+  display: none;
+  margin:0;padding:0;
+  -webkit-appearance:none;
+     -moz-appearance:none;
+          appearance:none;
+}
+
+
+.inputcard{
+    cursor:pointer;
+    width: 31%;
+    margin: 1%;
+    display:inline-block;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1) grayscale(.0) opacity(1);
+       -moz-filter: brightness(1) grayscale(.0) opacity(1);
+            filter: brightness(1) grayscale(.0) opacity(1);
+}
+
+.inputcard img{
+    width: 100%;
+}
+
+.checkboxes img {
+  width: 23%;
+  margin: 0 1% 1%;
+}
+
+.inputcard:hover{
+    -webkit-filter: brightness(1) grayscale(.4) opacity(.8);
+       -moz-filter: brightness(1) grayscale(.4) opacity(.8);
+            filter: brightness(1) grayscale(.4) opacity(.8);
+}
+
+/* Extras */
+a:visited{color:#888}
+a{color:#444;text-decoration:none;}
+p{margin-bottom:.3em;}
