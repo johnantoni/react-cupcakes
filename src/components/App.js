@@ -13,13 +13,21 @@ class App extends React.Component {
       order: {},
       cakeImgSrc: '',
       icingImgSrc: '',
-      chosenToppings: []
+      chosenToppings: [],
+      dataURL: ''
     };
     this.addCupcake = this.addCupcake.bind(this);
     this.updateCakeSrc = this.updateCakeSrc.bind(this);
     this.updateIcingSrc = this.updateIcingSrc.bind(this);
     this.updateToppingsSrc = this.updateToppingsSrc.bind(this);
+    this.passURL = this.passURL.bind(this);
+  }
 
+  passURL() {
+    console.log(this.state);
+    var dataURL = this.props.saveCanvas();
+    this.setState({dataURL});
+    console.log(this.state.dataURL);
   }
 
   addCupcake(cupcake) {
@@ -59,9 +67,17 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      <CreateCupcake addCupcake={this.addCupcake} updateCakeSrc={this.updateCakeSrc} updateIcingSrc={this.updateIcingSrc} updateToppingsSrc={this.updateToppingsSrc}/>
-      <CupcakeImage cakeImgSrc={this.state.cakeImgSrc} icingImgSrc={this.state.icingImgSrc} chosenToppings={this.state.chosenToppings}/>
-      </div>
+      <CupcakeImage cakeImgSrc={this.state.cakeImgSrc}
+                    icingImgSrc={this.state.icingImgSrc}
+                    chosenToppings={this.state.chosenToppings}
+                    dataURL={this.state.dataURL}/>
+      <CreateCupcake addCupcake={this.addCupcake}
+                    updateCakeSrc={this.updateCakeSrc}
+                    updateIcingSrc={this.updateIcingSrc}
+                    updateToppingsSrc={this.updateToppingsSrc}
+                    passURL={this.passURL}
+                    dataURL={this.state.dataURL}/>
+    </div>
     )
   }
 

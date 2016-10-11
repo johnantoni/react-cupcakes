@@ -1,23 +1,37 @@
+body {
+  margin: 0;
+}
+
+
 .form {
-  width: 60%;
-  max-width: 400px;
+  width: 98%;
+  /*max-width: 400px;*/
   display: inline-block;
   background-color: #f9f4c5;
-  overflow: scroll;
+  overflow-y: scroll;
   height: 100vh;
   padding: 1%;
 }
 
-canvas {
-  width: 40%;
+.cupcakeImg {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  background-image: url("/background.png");
   display: inline-block;
   vertical-align: top;
+  background-size: inherit;
+  text-align: center;
+   background-position: 0 271px;
+  text-align:center;
+}
+
+canvas {
+   display: inline;
+   height: 220px;
 }
 
 
-.cupcakeImg img{
-  position: absolute;
-}
 
 .cupcakes .radio {
   display: inline;
@@ -34,7 +48,7 @@ canvas {
 
 .inputcard{
     cursor:pointer;
-    width: 31%;
+    width: 31.33333%;
     margin: 1%;
     display:inline-block;
     -webkit-transition: all 100ms ease-in;
@@ -45,7 +59,7 @@ canvas {
             filter: brightness(1) grayscale(.0) opacity(1);
 }
 
-.inputcheck:hover, .inputcheck[type="checkbox"]:checked {
+.inputcheck:hover {
     -webkit-filter: brightness(1) grayscale(.4) opacity(.8);
        -moz-filter: brightness(1) grayscale(.4) opacity(.8);
             filter: brightness(1) grayscale(.4) opacity(.8);
@@ -66,9 +80,47 @@ canvas {
             filter: brightness(1) grayscale(.4) opacity(.8);
 }
 
-/* Extras */
-a:visited{color:#888}
-a{color:#444;text-decoration:none;}
-p{margin-bottom:.3em;}
-
 .inputcheck img { cursor: pointer; }
+
+
+@media screen and (min-width: 600px) {
+  .form {
+    width: 45%;
+    float: left;
+  }
+
+  .cupcakeImg {
+    position: relative;
+    width: 53%;
+    background-size: contain;
+    background-position: top;
+  }
+  canvas {
+    height: 400px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .form {
+    width: 38%;
+    float: left;
+  }
+
+  .cupcakeImg {
+    width: 60%;
+    background-size: contain;
+  }
+  canvas {
+    height: 400px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .form {
+    width: 28%;
+  }
+
+  .cupcakeImg {
+    width: 70%;
+  }
+}

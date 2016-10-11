@@ -10,7 +10,8 @@ class CupcakeImage extends React.Component {
             "kiwi.png", "mint-cream-icing.png", "peanut-butter-icing.png", "pink-buttercream-icing.png",
             "rainbow-sprinkles.png", "raspberry.png", "red-and-white-stars.png", "red-baubles.png",
             "red-velvet-cake.png", "reeses.png", "smarties.png", "strawberry.png", "vanilla-cake.png"]
-    };
+    },
+    this.saveCanvas = this.saveCanvas.bind(this);
   }
 
   // Preload images at the earliest possible lifecycle event
@@ -29,23 +30,19 @@ class CupcakeImage extends React.Component {
     this.updateCanvas();
   }
 
-  loadBackground(ctx) {
-    var background = new Image();
-    background.src = "background.png"
-    ctx.drawImage(background, 0, 0);
-  }
-
   addCake(ctx, imgSrc)  {
+    ctx.clearRect(0,0,360,480);
     this.addImage(ctx, imgSrc);
   }
 
   addIcing(ctx, imgSrc)  {
+    ctx.clearRect(0,0,360,480);
     this.addImage(ctx, imgSrc);
   }
 
   toppingsSrc(ctx, arr) {
-    console.log(arr);
-
+    // console.log(arr);
+    ctx.clearRect(0,0,360,480);
     arr.forEach((item) => {
       this.addImage(ctx, item)
     })
@@ -70,16 +67,26 @@ class CupcakeImage extends React.Component {
     let toppingsSrc = this.props.chosenToppings;
 
     const ctx = this.refs.canvas.getContext('2d');
-    this.loadBackground(ctx);
 
     this.addCake(ctx, cakeSrc);
     this.addIcing(ctx, icingSrc);
     this.toppingsSrc(ctx, toppingsSrc);
+
+  }
+
+  saveCanvas() {
+    let url = this.props.dataURL;
+    let canvas = document.getElementById("canvas");
+    url = this.refs.canvas.toDataURL();
+    return url;
   }
 
   render() {
    return (
-     <canvas ref="canvas" width={360} height={480}/>
+     <div className ="cupcakeImg">
+       <canvas ref="canvas" width={360} height={480}/>
+     </div>
+
    );
   }
 }

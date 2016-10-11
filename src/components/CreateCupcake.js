@@ -5,9 +5,10 @@ class CreateCupcake extends React.Component {
   constructor() {
     super();
     this.state = {
-      cake: 'vanilla',
-      icing: 'vanilla',
-      toppings: []
+      icing: '',
+      toppings: [],
+      image: '',
+
     }
     this.changeCake = this.changeCake.bind(this);
     this.changeIcing = this.changeIcing.bind(this);
@@ -37,6 +38,8 @@ class CreateCupcake extends React.Component {
 
   changeToppings(newToppings) {
     let src = {toppings: newToppings}
+
+    console.log(src);
     this.setState(src);
     this.prepareToppingsSrc(src);
   }
@@ -62,22 +65,33 @@ class CreateCupcake extends React.Component {
       // console.log(item);
       return `${item}.png`;
     });
+    console.log(addToppings);
+
     this.props.updateToppingsSrc(addToppings);
   }
 
+  pullImage() {
+    console.log("working");
+    this.props.passURL();
+  }
 
   createCupcake(event) {
     event.preventDefault();
+
+
     const cupcake = {
       cake: this.state.cake,
       icing: this.state.icing,
-      toppings: this.state.toppings
+      toppings: this.state.toppings,
+      image: this.pullImage()
     }
+    console.log(this.state.cake);
 
-    this.props.addCupcake(cupcake);
-      this.setState({ cake: 'vanilla', icing: 'vanilla', toppings: [] });
+    if ( this.state.cake !== "" && this.state.icing !== "" ) {
+      this.props.addCupcake(cupcake);
+      this.setState(cupcake);
     }
-
+  }
 
   render() {
     return (
@@ -90,7 +104,7 @@ class CreateCupcake extends React.Component {
                   <input  id="vanilla" type="radio" value="vanilla-cake"
                                 checked={this.state.cake === 'vanilla-cake'}
                                 onChange={this.changeCake} />
-                              <img src="/radio/radio-vanilla.png"/>
+                              <img src="/radio/radio-vanilla.png" alt="vanilla Bean png"/>
 
                 </label>
               </div>
@@ -99,7 +113,7 @@ class CreateCupcake extends React.Component {
                   <input id="red-velvet" type="radio" value="red-velvet-cake"
                                 checked={this.state.cake === 'red-velvet-cake'}
                                 onChange={this.changeCake} />
-                              <img src="/radio/radio-red-velvet.png"/>
+                              <img src="/radio/radio-red-velvet.png" alt="red velvet png"/>
 
 
                 </label>
@@ -109,7 +123,7 @@ class CreateCupcake extends React.Component {
                   <input id="chocolate" type="radio" value="chocolate-cake"
                                 checked={this.state.cake === 'chocolate-cake'}
                                 onChange={this.changeCake} />
-                              <img src="/radio/radio-chocolate.png"/>
+                              <img src="/radio/radio-chocolate.png" alt="chocolate cake png"/>
                 </label>
               </div>
               <h3>Choose a Icing Type</h3>
@@ -118,7 +132,7 @@ class CreateCupcake extends React.Component {
                   <input id="vanilla-cream" type="radio" value="vanilla-cream-icing"
                                 checked={this.state.icing === 'vanilla-cream-icing'}
                                 onChange={this.changeIcing} />
-                              <img src="/radio/radio-vanilla-cream.png"/>
+                              <img src="/radio/radio-vanilla-cream.png" alt="vanilla cream png"/>
                 </label>
               </div>
               <div className="radio">
@@ -126,7 +140,7 @@ class CreateCupcake extends React.Component {
                   <input id="cheese" type="radio" value="cream-cheese-icing"
                                 checked={this.state.icing === 'cream-cheese-icing'}
                                 onChange={this.changeIcing} />
-                              <img src="/radio/radio-cheese.png"/>
+                              <img src="/radio/radio-cheese.png" alt="cream chesse png"/>
                 </label>
               </div>
               <div className="radio">
@@ -134,7 +148,7 @@ class CreateCupcake extends React.Component {
                   <input id="chocolate-icing" type="radio" value="chocolate-icing"
                                 checked={this.state.icing === 'chocolate-icing'}
                                 onChange={this.changeIcing} />
-                              <img src="/radio/radio-chocolate-cream.png"/>
+                              <img src="/radio/radio-chocolate-cream.png" alt="chocolate cream png"/>
                 </label>
               </div>
               <div className="radio">
@@ -142,7 +156,7 @@ class CreateCupcake extends React.Component {
                   <input id="pink" type="radio" value="pink-buttercream-icing"
                                 checked={this.state.icing === 'pink-buttercream-icing'}
                                 onChange={this.changeIcing} />
-                              <img src="/radio/radio-pink.png"/>
+                              <img src="/radio/radio-pink.png" alt="pink cream png"/>
                 </label>
               </div>
               <div className="radio">
@@ -150,7 +164,7 @@ class CreateCupcake extends React.Component {
                   <input id="peanut" type="radio" value="peanut-butter-icing"
                                 checked={this.state.icing === 'peanut-butter-icing'}
                                 onChange={this.changeIcing} />
-                              <img src="/radio/radio-peanut.png"/>
+                              <img src="/radio/radio-peanut.png" alt="peanut butter png"/>
                 </label>
               </div>
               <div className="radio">
@@ -158,7 +172,7 @@ class CreateCupcake extends React.Component {
                   <input id="mint" type="radio" value="mint-cream-icing"
                                 checked={this.state.icing === 'mint-cream-icing'}
                                 onChange={this.changeIcing} />
-                              <img src="/radio/radio-mint.png"/>
+                              <img src="/radio/radio-mint.png" alt="mint cream png"/>
                 </label>
               </div>
               <h3>Choose some Toppings</h3>
@@ -168,21 +182,21 @@ class CreateCupcake extends React.Component {
                   value={this.state.toppings}
                   onChange={this.changeToppings}>
 
-                  <label className="inputcheck"><Checkbox value="blackberry"/><img src="/radio/input-blackberry.png"/></label>
-                  <label className="inputcheck"><Checkbox value="blueberry"/><img src="/radio/input-blueberry.png"/></label>
-                  <label className="inputcheck"><Checkbox value="cherry"/><img src="/radio/input-cherry.png"/></label>
-                  <label className="inputcheck"><Checkbox value="chocolate-baubles"/><img src="/radio/input-chocolate-baubles.png"/></label>
-                  <label className="inputcheck"><Checkbox value="kiwi"/><img src="/radio/input-kiwi.png"/></label>
-                  <label className="inputcheck"><Checkbox value="rainbow-sprinkles"/><img src="/radio/input-rainbow.png"/></label>
-                  <label className="inputcheck"><Checkbox value="raspberry"/><img src="/radio/input-raspberry.png"/></label>
-                  <label className="inputcheck"><Checkbox value="red-and-white-stars"/><img src="/radio/input-stars.png"/></label>
-                  <label className="inputcheck"><Checkbox value="red-baubles"/><img src="/radio/input-baubles.png"/></label>
-                  <label className="inputcheck"><Checkbox value="reeses"/><img src="/radio/input-reeses.png"/></label>
-                  <label className="inputcheck"><Checkbox value="smarties"/><img src="/radio/input-smarties.png"/></label>
-                  <label className="inputcheck"><Checkbox value="strawberry"/><img src="/radio/input-strawberry.png"/></label>
+                  <label className="inputcheck"><Checkbox value="blackberry"/><img src="/radio/input-blackberry.png" alt="blackberry png"/></label>
+                  <label className="inputcheck"><Checkbox value="blueberry"/><img src="/radio/input-blueberry.png" alt="blueberry png"/></label>
+                  <label className="inputcheck"><Checkbox value="cherry"/><img src="/radio/input-cherry.png" alt="cherry png"/></label>
+                  <label className="inputcheck"><Checkbox value="chocolate-baubles"/><img src="/radio/input-chocolate-baubles.png" alt="chocolate png"/></label>
+                  <label className="inputcheck"><Checkbox value="kiwi"/><img src="/radio/input-kiwi.png" alt="kiwi png"/></label>
+                  <label className="inputcheck"><Checkbox value="rainbow-sprinkles"/><img src="/radio/input-rainbow.png" alt="sprinkles png"/></label>
+                  <label className="inputcheck"><Checkbox value="raspberry"/><img src="/radio/input-raspberry.png"alt="raspberry png"/></label>
+                  <label className="inputcheck"><Checkbox value="red-and-white-stars"/><img src="/radio/input-stars.png" alt="stars png"/></label>
+                  <label className="inputcheck"><Checkbox value="red-baubles"/><img src="/radio/input-baubles.png" alt="baubles png"/></label>
+                  <label className="inputcheck"><Checkbox value="reeses"/><img src="/radio/input-reeses.png" alt="reeses png"/></label>
+                  <label className="inputcheck"><Checkbox value="smarties"/><img src="/radio/input-smarties.png" alt="smarties png"/></label>
+                  <label className="inputcheck"><Checkbox value="strawberry"/><img src="/radio/input-strawberry.png" alt="strawberry png"/></label>
                 </CheckboxGroup>
               </div>
-              <button type="submit">+ Add Item</button>
+              <button type="submit">Add Cupcake To Order</button>
           </form>
         </div>
       </div>
