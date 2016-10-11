@@ -7,8 +7,7 @@ class CreateCupcake extends React.Component {
     this.state = {
       icing: '',
       toppings: [],
-      image: '',
-
+      image: ''
     }
     this.changeCake = this.changeCake.bind(this);
     this.changeIcing = this.changeIcing.bind(this);
@@ -70,20 +69,22 @@ class CreateCupcake extends React.Component {
     this.props.updateToppingsSrc(addToppings);
   }
 
-  pullImage() {
+  pullImage(dataURL) {
     console.log("working");
-    this.props.passURL();
+    this.props.passURL(dataURL);
+    console.log({dataURL});
   }
 
   createCupcake(event) {
     event.preventDefault();
+    let imageURl = this.pullImage();
 
 
     const cupcake = {
       cake: this.state.cake,
       icing: this.state.icing,
       toppings: this.state.toppings,
-      image: this.pullImage()
+      // image: this.pullImage(),
     }
     console.log(this.state.cake);
 

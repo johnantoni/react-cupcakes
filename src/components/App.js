@@ -25,9 +25,9 @@ class App extends React.Component {
 
   passURL() {
     console.log(this.state);
-    var dataURL = this.props.saveCanvas();
+    var dataURL = this.refs.CupcakeImage.saveCanvas();
     this.setState({dataURL});
-    console.log(this.state.dataURL);
+    console.log({dataURL});
   }
 
   addCupcake(cupcake) {
@@ -62,15 +62,13 @@ class App extends React.Component {
   }
 
 
-
-
   render() {
     return (
       <div>
-      <CupcakeImage cakeImgSrc={this.state.cakeImgSrc}
+      <CupcakeImage ref="CupcakeImage" cakeImgSrc={this.state.cakeImgSrc}
                     icingImgSrc={this.state.icingImgSrc}
                     chosenToppings={this.state.chosenToppings}
-                    dataURL={this.state.dataURL}/>
+                    />
       <CreateCupcake addCupcake={this.addCupcake}
                     updateCakeSrc={this.updateCakeSrc}
                     updateIcingSrc={this.updateIcingSrc}

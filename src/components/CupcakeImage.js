@@ -10,8 +10,7 @@ class CupcakeImage extends React.Component {
             "kiwi.png", "mint-cream-icing.png", "peanut-butter-icing.png", "pink-buttercream-icing.png",
             "rainbow-sprinkles.png", "raspberry.png", "red-and-white-stars.png", "red-baubles.png",
             "red-velvet-cake.png", "reeses.png", "smarties.png", "strawberry.png", "vanilla-cake.png"]
-    },
-    this.saveCanvas = this.saveCanvas.bind(this);
+    }
   }
 
   // Preload images at the earliest possible lifecycle event
