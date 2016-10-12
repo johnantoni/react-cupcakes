@@ -122,14 +122,12 @@ class CreateCupcake extends React.Component {
   createCupcake(event) {
     event.preventDefault();
 
-
     const cupcake = {
       cake: this.state.cake,
       icing: this.state.icing,
       toppings: this.state.toppings,
       image: this.saveCanvas(),
     }
-    console.log(this.state.cake);
 
     if ( this.state.cake !== "" && this.state.icing !== "" ) {
       this.props.addCupcake(cupcake);
@@ -171,6 +169,31 @@ class CreateCupcake extends React.Component {
                                 <img src="/radio/radio-chocolate.png" alt="chocolate cake png"/>
                   </label>
                 </div>
+                <div className="radio">
+                  <label className="inputcard coffee">
+                    <input id="coffee" type="radio" value="coffee-cake"
+                                  checked={this.state.cake === 'coffee-cake'}
+                                  onChange={this.changeCake} />
+                                <img src="/radio/radio-coffee.png" alt="coffee cake png"/>
+                  </label>
+                </div>
+                <div className="radio">
+                  <label className="inputcard carrot">
+                    <input id="carrot" type="radio" value="carrot-cake"
+                                  checked={this.state.cake === 'carrot-cake'}
+                                  onChange={this.changeCake} />
+                                <img src="/radio/radio-carrot.png" alt="carot cake png"/>
+                  </label>
+                </div>
+                <div className="radio">
+                  <label className="inputcard chocolate-chip">
+                    <input id="chocolate-chip" type="radio" value="chocolate-chip-cake"
+                                  checked={this.state.cake === 'chocolate-chip-cake'}
+                                  onChange={this.changeCake} />
+                                <img src="/radio/radio-chocolate-chip.png" alt="chocolate chip cake png"/>
+                  </label>
+                </div>
+
                 <h3>Choose a Icing Type</h3>
                 <div className="radio">
                   <label className="inputcard vanilla-cream">
