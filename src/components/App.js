@@ -10,9 +10,6 @@ class App extends React.Component {
     this.state = {
       cupcakes: {},
       order: {},
-      cakeImgSrc: '',
-      icingImgSrc: '',
-      chosenToppings: [],
     };
     this.addCupcake = this.addCupcake.bind(this);
   }

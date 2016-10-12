@@ -138,6 +138,9 @@ class CreateCupcake extends React.Component {
   render() {
     return (
       <div>
+        <div className ="cupcakeImg">
+          <canvas ref="canvas" width={360} height={480}/>
+        </div>
         <div className="form">
           <div className="cupcakes">
             <form onSubmit={(e) => this.createCupcake(e)}>
@@ -267,9 +270,6 @@ class CreateCupcake extends React.Component {
                 <button type="submit">Add Cupcake To Order</button>
             </form>
           </div>
-        </div>
-        <div className ="cupcakeImg">
-          <canvas ref="canvas" width={360} height={480}/>
         </div>
       </div>
 

@@ -5,7 +5,6 @@ body {
 
 .form {
   width: 98%;
-  /*max-width: 400px;*/
   display: inline-block;
   background-color: #f9f4c5;
   overflow-y: scroll;
