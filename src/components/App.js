@@ -2,6 +2,7 @@ import React from 'react'
 import $ from 'jquery';
 import '../css/style.css';
 import CreateCupcake from './CreateCupcake';
+import Order from './Order';
 
 class App extends React.Component {
   constructor() {
@@ -34,6 +35,7 @@ class App extends React.Component {
     return (
       <div>
       <CreateCupcake addCupcake={this.addCupcake}/>
+      <Order cupcakes={this.state.cupcakes}/>
     </div>
     )
   }

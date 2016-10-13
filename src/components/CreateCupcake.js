@@ -52,15 +52,8 @@ class CreateCupcake extends React.Component {
     this.setState(src);
   }
 
-  prepareToppingsSrc(src) {
-    const srcToppings =  src.toppings;
-    // console.log(srcToppings);
-    let addToppings = srcToppings.map((item) => {
-      // console.log(item);
-      return `${item}.png`;
-    });
-    // console.log(addToppings);
-  }
+
+    // Add Images Functions
 
   addCake(ctx, imgSrc)  {
     ctx.clearRect(0,0,360,480);
@@ -95,11 +88,11 @@ class CreateCupcake extends React.Component {
 
   updateCanvas() {
     const srcToppings = this.state.toppings;
-    console.log(srcToppings);
+    // console.log(srcToppings);
     let addToppings = srcToppings.map((item) => {
       return `${item}.png`;
     });
-    console.log(addToppings);
+    // console.log(addToppings);
 
     let cakeSrc = `${this.state.cake}.png`;
     let icingSrc = `${this.state.icing}.png`;
