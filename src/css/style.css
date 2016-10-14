@@ -1,9 +1,25 @@
 body {
   margin: 0;
+  font-family: 'Raleway', sans-serif;
+
+}
+
+/*h1 {
+  font-family: 'Cookie', cursive;
+  font-family: 'Cookie', cursive;
+  font-weight: 100;
+  font-size: 3em;
+}*/
+
+
+.logo {
+  width: 96%;
+  margin: 2%;
 }
 
 
 .form {
+  text-align: center;
   margin-top: 14em;
   width: 98%;
   display: inline-block;
@@ -11,7 +27,9 @@ body {
   overflow-y: scroll;
   height: 100vh;
   padding: 1%;
+  background-image: url("/wood.png");
 }
+
 
 .cupcakeImg {
   position: fixed;

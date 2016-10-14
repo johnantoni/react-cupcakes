@@ -137,6 +137,7 @@ class CreateCupcake extends React.Component {
         <div className="form">
           <div className="cupcakes">
             <form onSubmit={(e) => this.createCupcake(e)}>
+              <img src="logo.png" className="logo"alt="Cupcake Nation Logo"/>
               <h3>Choose a Cake Type</h3>
                 <div className="radio">
                   <label className="inputcard vanilla">
@@ -190,7 +191,7 @@ class CreateCupcake extends React.Component {
                   </label>
                 </div>
 
-                <h3>Choose a Icing Type</h3>
+                <h3>Choose a Frosting Type</h3>
                 <div className="radio">
                   <label className="inputcard vanilla-cream">
                     <input id="vanilla-cream" type="radio" value="vanilla-cream-icing"

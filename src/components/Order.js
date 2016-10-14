@@ -16,7 +16,6 @@ render() {
           return <li key={ id } >
           <img width="auto" height="100px;" alt="star" src={cupcakes[cupcake].image }/>
           <div className="details">{cupcakes[cupcake].cake}, {cupcakes[cupcake].icing}, {cupcakes[cupcake].toppings.join(" ")}
-
           </div>
           </li>
           })

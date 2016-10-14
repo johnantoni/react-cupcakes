@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-import Firebase from 'firebase';
+import firebase from 'firebase';
 
 import './css/style.css';
 import App from './components/App';
@@ -12,7 +12,7 @@ const config = {
   storageBucket: "cupcakes-16999.appspot.com",
 };
 
-const fb = Firebase
+const fb = firebase
   .initializeApp(config)
   .database()
   .ref();
