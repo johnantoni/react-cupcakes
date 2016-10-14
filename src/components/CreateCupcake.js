@@ -1,5 +1,6 @@
 import React from 'react';
 import {Checkbox, CheckboxGroup} from 'react-checkbox-group';
+import Radio from './Radio';
 
 class CreateCupcake extends React.Component {
   constructor() {
@@ -139,107 +140,22 @@ class CreateCupcake extends React.Component {
             <form onSubmit={(e) => this.createCupcake(e)}>
               <img src="logo.png" className="logo"alt="Cupcake Nation Logo"/>
               <h3>Choose a Cake Type</h3>
-                <div className="radio">
-                  <label className="inputcard vanilla">
-                    <input  id="vanilla" type="radio" value="vanilla-cake"
-                                  checked={this.state.cake === 'vanilla-cake'}
-                                  onChange={this.changeCake} />
-                                <img src="/radio/radio-vanilla.png" alt="vanilla Bean png"/>
-
-                  </label>
-                </div>
-                <div className="radio">
-                  <label className="inputcard red-velvet">
-                    <input id="red-velvet" type="radio" value="red-velvet-cake"
-                                  checked={this.state.cake === 'red-velvet-cake'}
-                                  onChange={this.changeCake} />
-                                <img src="/radio/radio-red-velvet.png" alt="red velvet png"/>
-
-
-                  </label>
-                </div>
-                <div className="radio">
-                  <label className="inputcard chocolate">
-                    <input id="chocolate" type="radio" value="chocolate-cake"
-                                  checked={this.state.cake === 'chocolate-cake'}
-                                  onChange={this.changeCake} />
-                                <img src="/radio/radio-chocolate.png" alt="chocolate cake png"/>
-                  </label>
-                </div>
-                <div className="radio">
-                  <label className="inputcard coffee">
-                    <input id="coffee" type="radio" value="coffee-cake"
-                                  checked={this.state.cake === 'coffee-cake'}
-                                  onChange={this.changeCake} />
-                                <img src="/radio/radio-coffee.png" alt="coffee cake png"/>
-                  </label>
-                </div>
-                <div className="radio">
-                  <label className="inputcard carrot">
-                    <input id="carrot" type="radio" value="carrot-cake"
-                                  checked={this.state.cake === 'carrot-cake'}
-                                  onChange={this.changeCake} />
-                                <img src="/radio/radio-carrot.png" alt="carot cake png"/>
-                  </label>
-                </div>
-                <div className="radio">
-                  <label className="inputcard chocolate-chip">
-                    <input id="chocolate-chip" type="radio" value="chocolate-chip-cake"
-                                  checked={this.state.cake === 'chocolate-chip-cake'}
-                                  onChange={this.changeCake} />
-                                <img src="/radio/radio-chocolate-chip.png" alt="chocolate chip cake png"/>
-                  </label>
-                </div>
+                <Radio name={"vanilla"} cake={this.state.cake} changeCake={this.changeCake} type={"cake"}/>
+                <Radio name={"red-velvet"} cake={this.state.cake} changeCake={this.changeCake} type={"cake"}/>
+                <Radio name={"chocolate"} cake={this.state.cake} changeCake={this.changeCake} type={"cake"}/>
+                <Radio name={"coffee"} cake={this.state.cake} changeCake={this.changeCake} type={"cake"}/>
+                <Radio name={"carrot"} cake={this.state.cake} changeCake={this.changeCake} type={"cake"}/>
+                <Radio name={"chocolate-chip"} cake={this.state.cake} changeCake={this.changeCake} type={"cake"}/>
 
                 <h3>Choose a Frosting Type</h3>
-                <div className="radio">
-                  <label className="inputcard vanilla-cream">
-                    <input id="vanilla-cream" type="radio" value="vanilla-cream-icing"
-                                  checked={this.state.icing === 'vanilla-cream-icing'}
-                                  onChange={this.changeIcing} />
-                                <img src="/radio/radio-vanilla-cream.png" alt="vanilla cream png"/>
-                  </label>
-                </div>
-                <div className="radio">
-                  <label className="inputcard cheese">
-                    <input id="cheese" type="radio" value="cream-cheese-icing"
-                                  checked={this.state.icing === 'cream-cheese-icing'}
-                                  onChange={this.changeIcing} />
-                                <img src="/radio/radio-cheese.png" alt="cream chesse png"/>
-                  </label>
-                </div>
-                <div className="radio">
-                  <label className="inputcard chocolate-icing">
-                    <input id="chocolate-icing" type="radio" value="chocolate-icing"
-                                  checked={this.state.icing === 'chocolate-icing'}
-                                  onChange={this.changeIcing} />
-                                <img src="/radio/radio-chocolate-cream.png" alt="chocolate cream png"/>
-                  </label>
-                </div>
-                <div className="radio">
-                  <label className="inputcard pink">
-                    <input id="pink" type="radio" value="pink-buttercream-icing"
-                                  checked={this.state.icing === 'pink-buttercream-icing'}
-                                  onChange={this.changeIcing} />
-                                <img src="/radio/radio-pink.png" alt="pink cream png"/>
-                  </label>
-                </div>
-                <div className="radio">
-                  <label className="inputcard peanut">
-                    <input id="peanut" type="radio" value="peanut-butter-icing"
-                                  checked={this.state.icing === 'peanut-butter-icing'}
-                                  onChange={this.changeIcing} />
-                                <img src="/radio/radio-peanut.png" alt="peanut butter png"/>
-                  </label>
-                </div>
-                <div className="radio">
-                  <label className="inputcard mint">
-                    <input id="mint" type="radio" value="mint-cream-icing"
-                                  checked={this.state.icing === 'mint-cream-icing'}
-                                  onChange={this.changeIcing} />
-                                <img src="/radio/radio-mint.png" alt="mint cream png"/>
-                  </label>
-                </div>
+
+                <Radio name={"vanilla"} icing={this.state.icing} changeIcing={this.changeIcing} type={"icing"}/>
+                <Radio name={"cream-cheese"} icing={this.state.icing} changeIcing={this.changeIcing} type={"icing"}/>
+                <Radio name={"chocolate"} icing={this.state.icing} changeIcing={this.changeIcing} type={"icing"}/>
+                <Radio name={"pink"} icing={this.state.icing} changeIcing={this.changeIcing} type={"icing"}/>
+                <Radio name={"peanut-butter"} icing={this.state.icing} changeIcing={this.changeIcing} type={"icing"}/>
+                <Radio name={"mint"} icing={this.state.icing} changeIcing={this.changeIcing} type={"icing"}/>
+
                 <h3>Choose some Toppings</h3>
                 <div className="checkboxes">
                   <CheckboxGroup

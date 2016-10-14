@@ -30,6 +30,9 @@ body {
   background-image: url("/wood.png");
 }
 
+input[type='radio']:checked {
+
+}
 
 .cupcakeImg {
   position: fixed;
