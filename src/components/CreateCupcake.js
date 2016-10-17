@@ -132,7 +132,7 @@ class CreateCupcake extends React.Component {
   render() {
     return (
       <div>
-        <div className ="cupcakeImg">
+        <div className="cupcakeImg">
           <canvas ref="canvas" width={360} height={480}/>
         </div>
         <div className="form">

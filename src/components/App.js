@@ -7,7 +7,6 @@ import Order from './Order';
 class App extends React.Component {
   constructor() {
     super();
-    {/*getInitialState if using ES6*/}
     this.state = {
       cupcakes: {},
       order: {},
