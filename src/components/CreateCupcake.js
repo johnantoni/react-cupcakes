@@ -10,7 +10,7 @@ class CreateCupcake extends React.Component {
       icing: '',
       toppings: [],
       image: '',
-      images: ["background.png", "blackberry.png", "blueberry.png", "cherry.png",
+      images: ["blackberry.png", "blueberry.png", "cherry.png",
             "chocolate-baubles.png", "chocolate-cake.png", "chocolate-icing.png", "cream-cheese-icing.png",
             "kiwi.png", "mint-cream-icing.png", "peanut-butter-icing.png", "pink-buttercream-icing.png",
             "rainbow-sprinkles.png", "raspberry.png", "red-and-white-stars.png", "red-baubles.png",
@@ -108,7 +108,6 @@ class CreateCupcake extends React.Component {
 
   saveCanvas() {
     let url = this.props.dataURL;
-    let canvas = document.getElementById("canvas");
     url = this.refs.canvas.toDataURL();
     return url;
   }
@@ -125,14 +124,18 @@ class CreateCupcake extends React.Component {
 
     if ( this.state.cake !== "" && this.state.icing !== "" ) {
       this.props.addCupcake(cupcake);
-      this.setState(cupcake);
+
     }
+    const ctx = this.refs.canvas.getContext('2d');
+    ctx.clearRect(0,0,360,480);
+    this.setState({cake: "", icing: "", toppings: []});
   }
 
   render() {
     return (
       <div>
         <div className="cupcakeImg">
+          <img src="logo.png" className="logo"alt="Cupcake Nation Logo"/>
           <canvas ref="canvas" width={360} height={480}/>
         </div>
         <div className="form">

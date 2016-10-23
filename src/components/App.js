@@ -12,6 +12,7 @@ class App extends React.Component {
       order: {},
     };
     this.addCupcake = this.addCupcake.bind(this);
+    this.deleteCupcake = this.deleteCupcake.bind(this);
   }
 
   addCupcake(cupcake) {
@@ -30,11 +31,25 @@ class App extends React.Component {
     })
   }
 
+
+  deleteCupcake(cupcake) {
+    var url = "https://cupcakes-16999.firebaseio.com/" + cupcake + ".json";
+    $.ajax({
+      url: url,
+      method: "DELETE",
+      success: (data) =>  {
+        const cupcakes = {...this.state.cupcakes};
+        delete cupcakes[cupcake];
+        this.setState({ cupcakes: cupcakes });
+      }
+    });
+  }
+
   render() {
     return (
       <div>
       <CreateCupcake addCupcake={this.addCupcake}/>
-      <Order cupcakes={this.state.cupcakes}/>
+      <Order cupcakes={this.state.cupcakes} deleteCupcake={this.deleteCupcake}/>
     </div>
     )
   }

@@ -12,7 +12,7 @@ const config = {
   storageBucket: "cupcakes-16999.appspot.com",
 };
 
-const fb = firebase
+firebase
   .initializeApp(config)
   .database()
   .ref();

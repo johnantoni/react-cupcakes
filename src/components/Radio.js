@@ -15,15 +15,15 @@ class Radio extends React.Component {
     }
 
     return (
-    <div className="radio">
-      <label className={`${name}-${type}`} className="inputcard" >
-        <input id={`${name}-${type}`} type="radio" value={`${name}-${type}`}
-          checked={name === type}
-          onChange={changeType} />
-         <img src={url} alt={alt}/>
-      </label>
-    </div>
-  )
+      <div className="radio">
+        <label className={`${name}-${type} inputcard`} >
+          <input id={`${name}-${type}`} type="radio" value={`${name}-${type}`}
+            checked={name === type}
+            onChange={changeType} />
+           <img src={url} alt={alt}/>
+        </label>
+      </div>
+    )
   }
 
 }
