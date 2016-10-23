@@ -8,8 +8,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      cupcakes: [],
-      order: [],
+      cupcakes: {},
+      order: {},
     };
     this.addCupcake = this.addCupcake.bind(this);
     this.deleteCupcake = this.deleteCupcake.bind(this);
@@ -18,7 +18,7 @@ class App extends React.Component {
   addCupcake(cupcake) {
     // update our state
     // get cupcakes, if empty initialize cupcakes object
-    let cupcakes = this.state.cupcakes || [];
+    let cupcakes = this.state.cupcakes || {};
     console.log(cupcakes);
     $.ajax({
       url: "https://cupcakes-16999.firebaseio.com/.json",
