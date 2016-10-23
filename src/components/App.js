@@ -8,8 +8,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      cupcakes: {},
-      order: {},
+      cupcakes: [],
+      order: [],
     };
     this.addCupcake = this.addCupcake.bind(this);
     this.deleteCupcake = this.deleteCupcake.bind(this);
@@ -17,29 +17,31 @@ class App extends React.Component {
 
   addCupcake(cupcake) {
     // update our state
-    const cupcakes = {...this.state.cupcakes};
-    // add in our new cupcake
-    cupcakes.cake = cupcake;
+    // get cupcakes, if empty initialize cupcakes object
+    let cupcakes = this.state.cupcakes || [];
+    console.log(cupcakes);
     $.ajax({
       url: "https://cupcakes-16999.firebaseio.com/.json",
       method: "POST",
       data: JSON.stringify(cupcake),
       success: (data) => {
+        // append new cupcake to object list using name as key
+        let name = `${data.name}`;
+        cupcakes[name] = cupcake;
         this.setState({cupcakes});
-
       }
     })
   }
 
 
-  deleteCupcake(cupcake) {
-    var url = "https://cupcakes-16999.firebaseio.com/" + cupcake + ".json";
+  deleteCupcake(id) {
+    var url = `https://cupcakes-16999.firebaseio.com/${id}.json`;
     $.ajax({
       url: url,
       method: "DELETE",
       success: (data) =>  {
         const cupcakes = {...this.state.cupcakes};
-        delete cupcakes[cupcake];
+        delete cupcakes[id];
         this.setState({ cupcakes: cupcakes });
       }
     });
