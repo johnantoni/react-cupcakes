@@ -1,6 +1,7 @@
 import React from 'react'
 import $ from 'jquery';
 import '../css/style.css';
+import Login from './login';
 import CreateCupcake from './CreateCupcake';
 import Order from './Order';
 
@@ -8,11 +9,13 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      cupcakes: {},
-      order: {},
+      currentUser: null,
+      loggedIn: false,
+      cupcakes: {}
     };
     this.addCupcake = this.addCupcake.bind(this);
     this.deleteCupcake = this.deleteCupcake.bind(this);
+    this.loginUser = this.loginUser.bind(this);
   }
 
   addCupcake(cupcake) {
@@ -48,12 +51,18 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-      <CreateCupcake addCupcake={this.addCupcake}/>
-      <Order cupcakes={this.state.cupcakes} deleteCupcake={this.deleteCupcake}/>
-    </div>
-    )
+    if (this.state.loggedIn) {
+      return (
+        <div>
+        <CreateCupcake addCupcake={this.addCupcake}/>
+        <Order cupcakes={this.state.cupcakes} deleteCupcake={this.deleteCupcake}/>
+      </div>
+      )
+    } else {
+      return (
+        <Login onLogin={ this.loginUser } />
+      )
+    }
   }
 
   componentDidMount() {
@@ -65,6 +74,10 @@ class App extends React.Component {
         // console.log(data);
       }
     })
+  }
+
+  loginUser(email) {
+    this.setState({loggedIn: true, currentUser: email});
   }
 }
 

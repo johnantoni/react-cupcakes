@@ -4,6 +4,17 @@ body {
   background-image: url("/background1.png");
 }
 
+.login-background {
+  background-color: #f9f4c5;
+  width: 50%;
+  margin: 18% auto;
+  border-radius: 1em;
+  padding: 1em;
+}
+
+.login-background div {
+  padding: 0.5em 0;
+}
 /*h1 {
   font-family: 'Cookie', cursive;
   font-family: 'Cookie', cursive;
