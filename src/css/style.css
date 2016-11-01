@@ -6,22 +6,57 @@ body {
 
 .login-background {
   background-color: #f9f4c5;
-  width: 50%;
+  width: 85%;
+  max-width: 500px;
   margin: 18% auto;
   border-radius: 1em;
   padding: 1em;
 }
 
-.login-background div {
-  padding: 0.5em 0;
+.errorState {
+  background-color: #fff;
+  color: red;
 }
-/*h1 {
-  font-family: 'Cookie', cursive;
-  font-family: 'Cookie', cursive;
-  font-weight: 100;
-  font-size: 3em;
-}*/
+.login-background .loginType input {
+  margin-right: 0.2rem;
+}
 
+.login-background .loginType label {
+  margin-right: 1rem;
+  vertical-align: bottom;
+}
+
+.login-background .inputArea label {
+  text-align: left;
+}
+
+.login-background .inputArea input {
+  float: right;
+   width: 75%;
+   height: 2em;
+}
+
+.login-background div {
+  padding: 0.75em 0;
+}
+
+.login-background button {
+  margin: 0.3em 0;
+  border-radius: 15px;
+  width: 100%;
+  padding: 5px;
+  background-color: #D5838D;
+  border: 2px solid #9D0638;
+  color: white;
+  font-size: 28px;
+  padding: 16px 6px;
+}
+
+.signin-logo {
+  margin-top: -23%;
+  text-align: center;
+  width: 100%;
+ }
 
 .logo {
   width: 96%;

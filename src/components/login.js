@@ -20,9 +20,10 @@ class Login extends React.Component {
 
   render() {
     return <div>
-      { this.state.error ? <div>{ this.state.error }</div> : null }
+      { this.state.error ? <div className="errorState">{ this.state.error }</div> : null }
       <div className="login-background">
-        <div>
+      <img src="logo.png" className="signin-logo"alt="Cupcake Nation Logo"/>
+        <div className="loginType">
           <label>
             <input type='radio' value='login' checked={ this.state.mode ==='login' } onChange={ this.setMode } />
             Login
@@ -32,11 +33,11 @@ class Login extends React.Component {
             Signup
           </label>
         </div>
-        <div>
+        <div className="inputArea">
           <label htmlFor='email'>Email</label>
           <input type='text' name='email' value={ this.state.email } onChange={ this.setEmail } />
         </div>
-        <div>
+        <div className="inputArea">
           <label htmlFor='email'>Password</label>
           <input type='password' name='password' value={ this.state.password } onChange={ this.setPassword } />
         </div>
@@ -82,23 +83,6 @@ class Login extends React.Component {
         component.setState({ error: error.message })
       })
     }
-    // if (this.state.mode === 'login') {
-    //   firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-    //   .then(function() {
-    //     this.props.onLogin(this.state.email)
-    //   })
-    //   .catch(function(error) {
-    //     this.setState({ error: error.message })
-    //   })
-    //  } else {
-    //   firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-    //   .then(function() {
-    //     this.props.onLogin(this.state.email)
-    //   })
-    //   .catch(function(error) {
-    //     this.setState({ error: error.message })
-    //   })
-    // }
   }
 }
 
