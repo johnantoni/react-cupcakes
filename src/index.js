@@ -17,7 +17,4 @@ firebase
   .database()
   .ref();
 
-
-
-
 render(<App />, document.querySelector("#main"));
