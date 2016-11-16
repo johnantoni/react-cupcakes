@@ -17,10 +17,13 @@ var config = {
       }
     ]
   },
-  entry: APP_DIR + '/index.js',
+  entry: {
+    app: ["./src/index.js"]
+  },
   output: {
-    path: BUILD_DIR,
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, "build"),
+    publicPath: "/public/",
+    filename: "bundle.js"
   }
 };
 
